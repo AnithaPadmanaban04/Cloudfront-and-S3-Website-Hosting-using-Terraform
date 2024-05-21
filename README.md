@@ -6,7 +6,8 @@ The goal of this project is to create a static website hosted in an Amazon S3 bu
 
 ## Architectural Diagram:
 
-![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/cbdb6885-0d4f-42cd-b53f-ce03af4b92f8)
+![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/634cb5bd-bc20-4ecf-b580-4b6c3fb27f94)
+
 
 ## Prerequisites
 

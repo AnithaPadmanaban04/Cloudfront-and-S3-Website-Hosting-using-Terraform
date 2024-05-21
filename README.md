@@ -6,16 +6,15 @@ The goal of this project is to create a static website hosted in an Amazon S3 bu
 
 ## Architectural Diagram:
 
-![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/634cb5bd-bc20-4ecf-b580-4b6c3fb27f94)
-
+![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/1e30f86e-564a-4fe7-85e8-d6fea01e5c5f)
 
 ## Prerequisites
 
 Before starting this project, ensure you have the following:
 
-* [AWS Account](https://github.com/aniwardhan/Getting-Started-with-Terraform.git): If you don't have one, create an AWS account at aws.amazon.com
-* [Terraform Environment](https://github.com/aniwardhan/Getting-Started-with-Terraform.git)
-* [AWS CLI](https://github.com/aniwardhan/Getting-Started-with-Terraform.git): Install and configure the AWS Command Line Interface with appropriate permissions to interact with AWS services. 
+* [AWS Account](https://github.com/AnithaPadmanaban04/Getting-Started-with-Terraform.git): If you don't have one, create an AWS account at aws.amazon.com
+* [Terraform Environment](https://github.com/AnithaPadmanaban04/Getting-Started-with-Terraform.git)
+* [AWS CLI](https://github.com/AnithaPadmanaban04/Getting-Started-with-Terraform.git): Install and configure the AWS Command Line Interface with appropriate permissions to interact with AWS services. 
 * Static Website Content: Prepare the content you want to host, typically HTML, CSS, JavaScript, and images.
 * Domain Name (optional): If you have a domain, you can configure CloudFront to use it. Otherwise, you can use the default CloudFront domain.
 
@@ -32,9 +31,9 @@ Before starting this project, ensure you have the following:
   
 ### Step 2: Initialize the Terraform Environment
 
-* Create a file named [providers.tf](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/blob/main/provider.tf) to configure the specific cloud providers or services that your Terraform configuration will interact with.
+* Create a file named [providers.tf](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/blob/main/provider.tf) to configure the specific cloud providers or services that your Terraform configuration will interact with.
 
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/18b3f111-8253-44b7-a7d1-6a7213878285)
+  ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/f92c5ac1-2115-4285-9fc0-4e144ce7a318)
 
   Once File created run the terraform init command so that Terraform downloads necessary plugins and resources required for connecting to AWS and managing your infrastructure.
  
@@ -43,31 +42,32 @@ Before starting this project, ensure you have the following:
   terraform init
   ```
 
-  ![image](https://github.com/aniwardhan/Host-a-static-website-in-S3-using-Terraform/assets/80623694/41915893-cbfb-4a70-a4bd-d00926f6edbb)
+  ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/33a2a6d0-af7f-4a26-b5cf-dbf4186cff4a)
 
-  ### Step 3: Create S3 bucket and add your static content ([createbucket.tf](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/blob/main/createbucket.tf))
+
+  ### Step 3: Create S3 bucket and add your static content ([createbucket.tf](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/blob/main/createbucket.tf))
   
   Here's a basic Terraform configuration to create an S3 bucket and configure it for static website hosting:
   
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/5c257f44-2541-4d8a-ad3f-b6d7f9956b79)
+ ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/7f14feb1-8415-454d-abad-d0492856f0fa)
 
   #### Upload files to your bucket
 
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/157851e7-0778-44b9-85fc-f822f2824983)
+ ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/937eee3e-add9-44a4-a127-db6972188656)
 
   #### If you want to upload entire folder use the code below:
 
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/946ac7e4-fb93-47ae-b3d6-e214882739eb)
+ ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/820f1004-cbf8-4228-b587-a8101c68f69f)
 
   ### Step 4: Create policy to allow CloudFront to reach S3 bucket
 
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/0d415011-470e-4175-9357-4c4e0434552c)
+ ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/9e2ee175-b722-44f5-a190-48a5a8656394)
 
   Assign policy to allow CloudFront to reach S3 bucket
   
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/686feb84-9b90-4189-8187-fe46803f0df6)
+ ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/335b074a-006f-4f21-a8d1-269472f48c77)
 
-  ### Step5: Configure Cloudfront Distribution ([cloudfront.tf](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/blob/main/cloudfront.tf))
+  ### Step5: Configure Cloudfront Distribution ([cloudfront.tf](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/blob/main/cloudfront.tf))
 
   Here are the key configuration parameters and components used in setting up a CloudFront distribution for an S3-backed static website.
 
@@ -84,11 +84,11 @@ Before starting this project, ensure you have the following:
 
   These settings work together to create a high-performance content distribution network for your static website hosted on S3, with flexible options for handling errors, security, and caching.
 
-  ### Step 6: Create [output.tf](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/blob/main/output.tf)
+  ### Step 6: Create [output.tf](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/blob/main/output.tf)
 
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/63c5d8ac-c626-44b7-9d8d-ca59bc696753)
+  ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/f4bde49e-23c2-46f2-af90-5a2924882ca3)
 
-  ### Step 7: Create [variable.tf](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/blob/main/variable.tf)
+  ### Step 7: Create [variable.tf](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/blob/main/variable.tf)
 
   ### Step 8: Apply Terraform Configuration
 
@@ -108,34 +108,34 @@ Before starting this project, ensure you have the following:
 
   Output in Terraform Environment
 
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/fd792560-8794-4151-97b9-553f3eb9f615)
+  ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/be41cd81-5698-4d9b-8d4e-a92b5157ad79)
 
   Check in AWS Management Console
   
   S3 Bucket Creation 
 
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/a00cbd71-043c-4f08-8272-fe319772668b)
+  ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/9a73d753-8648-45b7-ab81-a2832ad54908)
 
+  Static file "[index.html](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/blob/main/index.html)" is added to S3 bucket
 
-  Static file "[index.html](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/blob/main/index.html)" is added to S3 bucket
-
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/027054ed-6612-47f3-abd2-2084d7aebd62)
+  ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/fdb05d94-8b0c-4a29-a22e-0fa9ec63c1f2)
 
   Cloudfront Distribution is Created with default root object as index.html
 
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/e008e0d3-dbf8-4a69-abfa-141db367053b)
+  ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/2bddde61-7e4c-4b60-8218-a343cfb051c5)
 
   CloudFront geographic restrictions added
 
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/dab463b8-5c51-4e4d-a2d8-fb82020cc3cf)
+ ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/914c4510-b2a5-4cc6-aaf5-770a50836580)
 
   CloudFront Origin added
 
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/9fe2581c-ecb4-452b-ab57-e325b75ad81f)
+  ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/0db17a77-7de5-4400-b913-bed3a8410a5f)
 
   Copy the domain name of Cloudfront and check the output
 
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/fcb342db-5883-490d-b24f-287c936fa894)
+  ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/22fec53f-f5d8-40a6-bb7b-058cdaeb3f9e)
+
 
   #### Step 10: Clean up Resources
 
@@ -143,7 +143,8 @@ Before starting this project, ensure you have the following:
   terraform destroy -auto-approve
   ```
 
-  ![image](https://github.com/aniwardhan/Cloudfront-and-S3-Website-Hosting/assets/80623694/0ec853c2-f11f-473a-bdd4-05d8856c4103)
+ ![image](https://github.com/AnithaPadmanaban04/Cloudfront-and-S3-Website-Hosting-using-Terraform/assets/170385807/7125e690-d34e-4399-9170-072c55d707d0)
+
 
 
 
